@@ -20,22 +20,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OWOMI — Banking Without Borders",
+  title: "OWOMI — Protect your Wealth",
   description:
-    "Stablecoin-powered banking for West Africa. Multi-currency accounts, instant cross-border transfers, and high-yield savings.",
+    "Receive, hold, and spend in US dollars from anywhere. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: "OWOMI — Banking Without Borders",
+    title: "OWOMI — Protect your Wealth",
     description:
-      "Stablecoin-powered banking for West Africa. Multi-currency accounts, instant cross-border transfers, and high-yield savings.",
+      "Receive, hold, and spend in US dollars from anywhere. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.",
     url: "https://owomi.co",
     siteName: "OWOMI",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OWOMI — Banking Without Borders",
+    title: "OWOMI — Protect your Wealth",
     description:
-      "Stablecoin-powered banking for West Africa. Multi-currency accounts, instant cross-border transfers, and high-yield savings.",
+      "Receive, hold, and spend in US dollars from anywhere. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.",
   },
 };
 

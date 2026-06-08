@@ -6,6 +6,7 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import { AnimatedUnderline } from "@/components/ui/animated-underline";
 import { TextRotate } from "@/components/ui/text-rotate";
+import { GLSLHills } from "@/components/ui/glsl-hills";
 
 const GridPattern = ({ offsetX, offsetY }: { offsetX: ReturnType<typeof useMotionValue<number>>; offsetY: ReturnType<typeof useMotionValue<number>> }) => (
   <svg className="w-full h-full">
@@ -76,6 +77,11 @@ export function OwomiHero() {
 
       {/* White background */}
       <div className="absolute inset-0 bg-white" />
+
+      {/* GLSL Hills background */}
+      <div className="absolute inset-0 z-[0] opacity-[0.35]">
+        <GLSLHills speed={0.2} />
+      </div>
 
       {/* Infinite grid – faint base layer */}
       <div className="absolute inset-0 z-[1] opacity-[0.04]">
@@ -191,10 +197,10 @@ export function OwomiHero() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-sm"
-                    style={{ color: "rgba(255, 255, 255, 0.7)" }}
+                    className="text-sm font-medium text-[#11647B]"
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
-                    You&apos;re on the waitlist!
+                    You&apos;re on the waitlist! We&apos;ll be in touch.
                   </motion.p>
                 ) : showForm ? (
                   <motion.form
