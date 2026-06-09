@@ -8,8 +8,8 @@ export default function JourneyPage() {
   return (
     <main className="relative flex h-screen items-center justify-center overflow-hidden bg-white">
 
-      {/* GLSL Hills background */}
-      <div className="absolute inset-0 z-0 opacity-[0.35]">
+      {/* GLSL Hills background – hidden on small screens for performance */}
+      <div className="absolute inset-0 z-0 opacity-[0.35] hidden sm:block">
         <GLSLHills speed={0.2} />
       </div>
 
@@ -17,16 +17,16 @@ export default function JourneyPage() {
       <div className="relative z-10 flex w-full h-full flex-col text-[#11647B]">
 
         {/* ─── Header ─── */}
-        <header className="flex items-center justify-between px-8 py-8 lg:px-16" style={{ fontFamily: "var(--font-heading)" }}>
-          <Link href="/" className="flex items-center gap-3">
-            <svg fill="none" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+        <header className="flex items-center justify-between px-5 py-5 sm:px-8 sm:py-8 lg:px-16" style={{ fontFamily: "var(--font-heading)" }}>
+          <Link href="/" className="flex items-center gap-2 sm:gap-3">
+            <svg fill="none" height="28" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg" className="sm:w-10 sm:h-10">
               <path d="M12 2V22M12 2L19 19M12 2L5 19M2 12H22M2 12L19 5M2 12L19 19M5 5L19 19M19 5L5 19" stroke="#11647B" strokeLinecap="round" strokeWidth="2" />
             </svg>
-            <span className="text-2xl font-extrabold tracking-tight text-[#11647B]" style={{ fontFamily: "var(--font-heading)" }}>
-              OWOMI
+            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#11647B]" style={{ fontFamily: "var(--font-heading)" }}>
+              BEYA
             </span>
           </Link>
-          <Link href="/" className="flex items-center gap-2 text-sm text-[#ff5941]">
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[#ff5941] min-h-[44px] min-w-[44px] justify-end">
             <svg fill="none" height="14" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" width="14">
               <line x1="19" x2="5" y1="12" y2="12" />
               <polyline points="12 19 5 12 12 5" />
@@ -36,17 +36,17 @@ export default function JourneyPage() {
         </header>
 
         {/* ─── Story ─── */}
-        <div className="flex flex-grow items-center justify-center px-8 lg:px-16">
-          <div className="max-w-3xl">
+        <div className="flex flex-grow items-center justify-center overflow-y-auto px-5 sm:px-8 lg:px-16">
+          <div className="max-w-3xl py-4 sm:py-0">
             <h1
-              className="mb-10 text-5xl font-semibold leading-[1.15] tracking-tight text-[#ff5941] md:mb-14 md:text-6xl"
+              className="mb-6 text-[clamp(2rem,6vw,3.75rem)] font-semibold leading-[1.15] tracking-tight text-[#ff5941] sm:mb-10 md:mb-14"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               Our Story
             </h1>
 
             <div
-              className="space-y-6 text-lg leading-[1.6] text-[#666] md:space-y-8"
+              className="space-y-5 text-sm leading-[1.7] text-[#666] sm:text-base sm:space-y-6 md:text-lg md:space-y-8 md:leading-[1.6]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               <p>
@@ -57,7 +57,7 @@ export default function JourneyPage() {
               </p>
 
               <p>
-                OWOMI uses stablecoin rails to power multi-currency accounts that let you hold,
+                BEYA uses stablecoin rails to power multi-currency accounts that let you hold,
                 send, and receive money across borders in seconds. By settling on-chain, we
                 bypass the correspondent banking system entirely, delivering high-yield
                 savings, near-zero transfer fees, and withdrawals that hit your local bank
@@ -76,18 +76,18 @@ export default function JourneyPage() {
 
         {/* ─── Footer ─── */}
         <footer
-          className="flex flex-wrap items-center justify-between px-8 py-8 lg:px-16 text-xs text-[#ff5941]"
+          className="flex flex-col items-center gap-3 px-5 py-5 sm:flex-row sm:flex-wrap sm:justify-between sm:px-8 sm:py-8 lg:px-16 text-xs text-[#ff5941]"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          <div className="mb-4 lg:mb-0">
-            2026 - OWOMI. All rights reserved.
+          <div>
+            2026 - BEYA. All rights reserved.
           </div>
-          <div className="mb-4 flex gap-6 lg:mb-0">
-            <a href="#"><AnimatedUnderline><span>Privacy</span></AnimatedUnderline></a>
-            <span className="opacity-40">&middot;</span>
-            <a href="#"><AnimatedUnderline><span>Contact us</span></AnimatedUnderline></a>
-            <span className="opacity-40">&middot;</span>
-            <a href="#"><AnimatedUnderline><span>Terms of use</span></AnimatedUnderline></a>
+          <div className="flex gap-4 sm:gap-6">
+            <a href="#" className="min-h-[44px] flex items-center"><AnimatedUnderline><span>Privacy</span></AnimatedUnderline></a>
+            <span className="opacity-40 flex items-center">&middot;</span>
+            <a href="#" className="min-h-[44px] flex items-center"><AnimatedUnderline><span>Contact us</span></AnimatedUnderline></a>
+            <span className="opacity-40 flex items-center">&middot;</span>
+            <a href="#" className="min-h-[44px] flex items-center"><AnimatedUnderline><span>Terms of use</span></AnimatedUnderline></a>
           </div>
         </footer>
       </div>

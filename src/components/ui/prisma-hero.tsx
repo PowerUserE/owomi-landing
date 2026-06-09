@@ -133,7 +133,7 @@ const PrismaHero = () => {
                 className="font-medium leading-[0.85] tracking-[-0.07em] text-[20vw] sm:text-[18vw] md:text-[16vw] lg:text-[15vw] xl:text-[14vw] 2xl:text-[15vw]"
                 style={{ color: "#E1E0CC" }}
               >
-                <WordsPullUp text="OWOMI" showAsterisk />
+                <WordsPullUp text="BEYA" showAsterisk />
               </h1>
             </div>
 
@@ -146,7 +146,7 @@ const PrismaHero = () => {
                 className="text-xs text-primary/70 sm:text-sm md:text-base"
                 style={{ lineHeight: 1.2 }}
               >
-                OWOMI is a stablecoin-powered banking platform for West Africa. Multi-currency accounts, instant cross-border transfers, and high-yield savings — built for a borderless continent.
+                BEYA is a stablecoin-powered banking platform for West Africa. Multi-currency accounts, instant cross-border transfers, and high-yield savings — built for a borderless continent.
               </motion.p>
 
               <motion.button

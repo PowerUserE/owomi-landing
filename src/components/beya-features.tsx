@@ -1,7 +1,7 @@
 "use client";
 
 import StackingCards from "@/components/ui/stacking-card";
-import { OwomiHero } from "@/components/owomi-hero";
+import { BeyaHero } from "@/components/beya-hero";
 
 const features = [
   {
@@ -28,16 +28,16 @@ const features = [
   {
     title: "Instant Cross-Border Transfers",
     description:
-      "Send money across borders in seconds, not days. Whether it's Lagos to London or Accra to New York, OWOMI makes international payments as simple as a local transfer.",
+      "Send money across borders in seconds, not days. Whether it's Lagos to London or Accra to New York, BEYA makes international payments as simple as a local transfer.",
     link: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&auto=format&fit=crop",
     color: "#D4936D",
   },
 ];
 
-export function OwomiLanding() {
+export function BeyaLanding() {
   return (
     <StackingCards projects={features}>
-      <OwomiHero />
+      <BeyaHero />
     </StackingCards>
   );
 }

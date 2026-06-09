@@ -33,7 +33,7 @@ const GridPattern = ({ offsetX, offsetY }: { offsetX: ReturnType<typeof useMotio
 
 /* eslint-disable @next/next/no-img-element */
 
-export function OwomiHero() {
+export function BeyaHero() {
   const [showForm, setShowForm] = useState(false);
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -78,8 +78,8 @@ export function OwomiHero() {
       {/* White background */}
       <div className="absolute inset-0 bg-white" />
 
-      {/* GLSL Hills background */}
-      <div className="absolute inset-0 z-[0] opacity-[0.35]">
+      {/* GLSL Hills background – hidden on small screens for performance */}
+      <div className="absolute inset-0 z-[0] opacity-[0.35] hidden sm:block">
         <GLSLHills speed={0.2} />
       </div>
 
@@ -88,9 +88,9 @@ export function OwomiHero() {
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} />
       </div>
 
-      {/* Infinite grid – mouse reveal layer */}
+      {/* Infinite grid – mouse reveal layer (desktop only) */}
       <motion.div
-        className="absolute inset-0 z-[1] opacity-[0.15]"
+        className="absolute inset-0 z-[1] opacity-[0.15] hidden md:block"
         style={{ maskImage, WebkitMaskImage: maskImage }}
       >
         <GridPattern offsetX={gridOffsetX} offsetY={gridOffsetY} />
@@ -103,16 +103,16 @@ export function OwomiHero() {
       <div className="relative z-10 flex h-full flex-col text-[#11647B]">
 
         {/* ─── Header ─── */}
-        <header className="flex items-center justify-between px-8 py-8 lg:px-16" style={{ fontFamily: "var(--font-heading)" }}>
-          <div className="flex items-center gap-3">
-            <svg fill="none" height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+        <header className="flex items-center justify-between px-5 py-5 sm:px-8 sm:py-8 lg:px-16" style={{ fontFamily: "var(--font-heading)" }}>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <svg fill="none" height="28" viewBox="0 0 24 24" width="28" xmlns="http://www.w3.org/2000/svg" className="sm:w-10 sm:h-10">
               <path d="M12 2V22M12 2L19 19M12 2L5 19M2 12H22M2 12L19 5M2 12L19 19M5 5L19 19M19 5L5 19" stroke="#11647B" strokeLinecap="round" strokeWidth="2" />
             </svg>
-            <span className="text-2xl font-extrabold tracking-tight text-[#11647B]" style={{ fontFamily: "var(--font-heading)" }}>
-              OWOMI
+            <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-[#11647B]" style={{ fontFamily: "var(--font-heading)" }}>
+              BEYA
             </span>
           </div>
-          <Link href="/journey" className="flex items-center gap-2 text-sm text-[#ff5941]">
+          <Link href="/journey" className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[#ff5941] min-h-[44px] min-w-[44px] justify-end">
             <AnimatedUnderline>
               <span>Follow the journey</span>
             </AnimatedUnderline>
@@ -124,7 +124,7 @@ export function OwomiHero() {
         </header>
 
         {/* ─── Hero Grid ─── */}
-        <div className="grid flex-grow grid-cols-1 items-center gap-8 px-8 py-8 lg:grid-cols-[1.1fr_1fr] lg:px-16 lg:py-0">
+        <div className="grid flex-grow grid-cols-1 items-center gap-4 px-5 py-4 sm:gap-8 sm:px-8 sm:py-8 lg:grid-cols-[1.1fr_1fr] lg:px-16 lg:py-0">
 
           {/* Left content */}
           <section className="flex flex-col justify-center">
@@ -133,11 +133,11 @@ export function OwomiHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-6"
+              className="mb-4 sm:mb-6"
             >
               <LayoutGroup>
                 <h1
-                  className="text-5xl font-semibold leading-[1.15] tracking-tight text-[#11647B] md:text-6xl"
+                  className="text-[clamp(1.75rem,6vw,3.75rem)] font-semibold leading-[1.15] tracking-tight text-[#11647B]"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   <span><span className="text-[#ff5941]">US Dollars</span> without borders.</span>
@@ -158,7 +158,7 @@ export function OwomiHero() {
                         "settle.",
                         "move.",
                       ]}
-                      mainClassName="text-white px-2 md:px-3 bg-[#ff5941] overflow-hidden py-0.5 md:py-1 justify-center"
+                      mainClassName="text-white px-1.5 sm:px-2 md:px-3 bg-[#ff5941] overflow-hidden py-0.5 md:py-1 justify-center"
                       staggerFrom="last"
                       initial={{ y: "100%" }}
                       animate={{ y: 0 }}
@@ -177,7 +177,7 @@ export function OwomiHero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-10 max-w-lg text-lg leading-relaxed text-[#666]"
+              className="mb-6 sm:mb-10 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed text-[#666]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Receive, hold, and spend in dollars from anywhere &mdash; no US address required. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.
@@ -220,16 +220,16 @@ export function OwomiHero() {
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
                       required
-                      className="flex-1 bg-transparent px-5 py-3 text-sm text-[#121414] placeholder:text-[#999] focus:outline-none"
+                      className="flex-1 min-w-0 bg-transparent px-4 sm:px-5 py-3 text-sm text-[#121414] placeholder:text-[#999] focus:outline-none"
                       style={{ fontFamily: "var(--font-body)" }}
                     />
                     <button
                       type="submit"
-                      className="group flex items-center gap-2 bg-[#11647B] px-5 py-2 m-1 text-sm font-semibold text-[#ffffff] transition-all hover:brightness-110 hover:shadow-[0_0_20px_rgba(17,100,123,0.3)]"
+                      className="group flex items-center gap-2 bg-[#11647B] px-4 sm:px-5 py-2 m-1 text-sm font-semibold text-white transition-all hover:brightness-110 hover:shadow-[0_0_20px_rgba(17,100,123,0.3)] min-h-[44px]"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
                       <span className="hidden sm:inline">Sign up</span>
-                      <Send className="h-3.5 w-3.5" />
+                      <Send className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                     </button>
                   </motion.form>
                 ) : (
@@ -238,7 +238,7 @@ export function OwomiHero() {
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.3 }}
                     onClick={() => setShowForm(true)}
-                    className="group relative flex items-center gap-1 overflow-hidden border-[1.5px] border-[#11647B]/40 bg-transparent px-8 py-3 text-sm font-semibold text-[#11647B] cursor-pointer transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-white active:scale-[0.95]"
+                    className="group relative flex items-center gap-1 overflow-hidden border-[1.5px] border-[#11647B]/40 bg-transparent px-6 sm:px-8 py-3 text-sm font-semibold text-[#11647B] cursor-pointer transition-all duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)] hover:border-transparent hover:text-white active:scale-[0.95] min-h-[44px]"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     <ArrowRight className="absolute w-4 h-4 left-[-25%] stroke-[#11647B] fill-none z-[9] group-hover:left-4 group-hover:stroke-white transition-all duration-[800ms] ease-[cubic-bezier(0.34,1.56,0.64,1)]" />
@@ -253,7 +253,7 @@ export function OwomiHero() {
             </motion.div>
           </section>
 
-          {/* Right – Phone Mockup */}
+          {/* Right – Phone Mockup (hidden on mobile/tablet) */}
           <motion.section
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -262,7 +262,7 @@ export function OwomiHero() {
           >
             <img
               src="/phone-mockup.png"
-              alt="OWOMI app preview"
+              alt="BEYA app preview"
               className="w-auto max-h-[80vh] object-contain drop-shadow-[0_0_40px_rgba(17,100,123,0.08)] absolute bottom-0 translate-y-[65%] scale-[1.18] origin-bottom"
             />
           </motion.section>
@@ -270,18 +270,18 @@ export function OwomiHero() {
 
         {/* ─── Footer ─── */}
         <footer
-          className="flex flex-wrap items-center justify-between px-8 py-8 lg:px-16 text-xs text-[#ff5941]"
+          className="flex flex-col items-center gap-3 px-5 py-5 sm:flex-row sm:flex-wrap sm:justify-between sm:px-8 sm:py-8 lg:px-16 text-xs text-[#ff5941]"
           style={{ fontFamily: "var(--font-body)" }}
         >
-          <div className="mb-4 lg:mb-0">
-            2026 - OWOMI. All rights reserved.
+          <div>
+            2026 - BEYA. All rights reserved.
           </div>
-          <div className="mb-4 flex gap-6 lg:mb-0">
-            <a href="#"><AnimatedUnderline><span>Privacy</span></AnimatedUnderline></a>
-            <span className="opacity-40">&middot;</span>
-            <a href="#"><AnimatedUnderline><span>Contact us</span></AnimatedUnderline></a>
-            <span className="opacity-40">&middot;</span>
-            <a href="#"><AnimatedUnderline><span>Terms of use</span></AnimatedUnderline></a>
+          <div className="flex gap-4 sm:gap-6">
+            <a href="#" className="min-h-[44px] flex items-center"><AnimatedUnderline><span>Privacy</span></AnimatedUnderline></a>
+            <span className="opacity-40 flex items-center">&middot;</span>
+            <a href="#" className="min-h-[44px] flex items-center"><AnimatedUnderline><span>Contact us</span></AnimatedUnderline></a>
+            <span className="opacity-40 flex items-center">&middot;</span>
+            <a href="#" className="min-h-[44px] flex items-center"><AnimatedUnderline><span>Terms of use</span></AnimatedUnderline></a>
           </div>
         </footer>
       </div>

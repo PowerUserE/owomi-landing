@@ -20,23 +20,23 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "OWOMI — Protect your Wealth",
+  title: "BEYA — Protect your Wealth",
   description:
     "Receive, hold, and spend in US dollars from anywhere. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "OWOMI — Protect your Wealth",
+    title: "BEYA — Protect your Wealth",
     description:
       "Receive, hold, and spend in US dollars from anywhere. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.",
-    url: "https://owomi.co",
-    siteName: "OWOMI",
+    url: "https://beya.finance",
+    siteName: "BEYA",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OWOMI — Protect your Wealth",
+    title: "BEYA — Protect your Wealth",
     description:
       "Receive, hold, and spend in US dollars from anywhere. Multi-currency accounts, instant cross-border transfers, and up to 7% yield on your savings.",
   },
